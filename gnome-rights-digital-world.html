@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gnomes Go Digital - Gnome Rights Organization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #0f0f0f;
+            color: #00ff00;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .digital-header {
+            background: linear-gradient(to right, #00ff00, #00aa00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 3em;
+            text-shadow: 0 0 10px rgba(0,255,0,0.5);
+        }
+        #gnome-tech-challenge {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #111;
+            border: 2px solid #00ff00;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="digital-header">Gnomes: Conquering the Digital Frontier</h1>
+    </header>
+
+    <nav>
+        <a href="index.html" style="color: #00ff00;">Home</a> |
+        <a href="news.html" style="color: #00ff00;">News</a> |
+        <a href="history.html" style="color: #00ff00;">History</a>
+    </nav>
+
+    <div id="gnome-tech-challenge"></div>
+
+    <script type="text/babel">
+        const GnomeTechChallenge = () => {
+            const [gnomeStack, setGnomeStack] = React.useState(0);
+            const maxHeight = 5;
+
+            const handleClimbClick = () => {
+                if (gnomeStack < maxHeight) {
+                    setGnomeStack(gnomeStack + 1);
+                }
+            };
+
+            return (
+                <div id="gnome-tech-challenge">
+                    <h2 style={{color: '#00ff00'}}>The Great Computer Access Challenge</h2>
+                    <div style={{
+                        height: '300px', 
+                        position: 'relative', 
+                        backgroundColor: '#222',
+                        border: '2px solid #00ff00'
+                    }}>
+                        {/* Computer */}
+                        <div style={{
+                            position: 'absolute',
+                            top: '50px',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            width: '200px',
+                            height: '150px',
+                            backgroundColor: '#444',
+                            border: '5px solid #666'
+                        }}>
+                            <div style={{
+                                backgroundColor: '#00ff00',
+                                width: '180px',
+                                height: '100px',
+                                margin: '10px auto',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                color: 'black'
+                            }}>
+                                Gnome Network
+                            </div>
+                        </div>
+
+                        {/* Gnome Stack */}
+                        {[...Array(gnomeStack)].map((_, i) => (
+                            <div 
+                                key={i} 
+                                style={{
+                                    position: 'absolute',
+                                    bottom: `${50 + i * 30}px`,
+                                    left: '50%',
+                                    transform: 'translateX(-50%)',
+                                    width: '50px',
+                                    height: '50px',
+                                    backgroundColor: '#00ff00',
+                                    borderRadius: '50%',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    color: 'black'
+                                }}
+                            >
+                                👽
+                            </div>
+                        ))}
+                    </div>
+                    <button 
+                        onClick={handleClimbClick}
+                        style={{
+                            backgroundColor: '#00ff00', 
+                            color: 'black', 
+                            border: 'none', 
+                            padding: '10px 20px',
+                            margin: '10px',
+                            cursor: 'pointer'
+                        }}
+                        disabled={gnomeStack >= maxHeight}
+                    >
+                        {gnomeStack < maxHeight ? 'Stack Another Gnome!' : 'Mission Accomplished!'}
+                    </button>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<GnomeTechChallenge />, document.getElementById('gnome-tech-challenge'));
+    </script>
+
+    <div style={{color: '#00ff00', padding: '20px'}}>
+        <h3>Our Digital Manifesto</h3>
+        <p>From garden ornaments to digital pioneers, gnomes are breaking through technological barriers!</p>
+        <p>Highlights of Our Digital Revolution:</p>
+        <ul style={{listStyleType: 'none'}}>
+            <li>🖥️ First Gnome-Coded Website (This One!)</li>
+            <li>📱 Mobile App Development Initiatives</li>
+            <li>🌐 Global Gnome Network Establishment</li>
+            <li>💻 Mandatory Tech Education Programs</li>
+        </ul>
+    </div>
+</body>
+</html>
